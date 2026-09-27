@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Life OS · 我的生活整理空間</title>
+  <meta name="description" content="個人生活與目標管理工具：人生領域、目標、計畫、任務與今日行動。" />
+  <meta name="theme-color" content="#FAF9F7" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    // 在畫面出現前先套用主題，避免深色模式閃白
+    (function () {
+      try {
+        var raw = localStorage.getItem('lifeos:v1');
+        var theme = raw ? (JSON.parse(raw).settings || {}).theme : 'system';
+        var dark = theme === 'dark' || ((!theme || theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      } catch (e) {}
+    })();
+  </script>
+  <script type="importmap">
+    {
+      "imports": {
+        "preact": "https://cdn.jsdelivr.net/npm/preact@10.24.3/dist/preact.module.js",
+        "preact/hooks": "https://cdn.jsdelivr.net/npm/preact@10.24.3/hooks/dist/hooks.module.js",
+        "htm": "https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <div class="boot">載入中…</div>
+  </div>
+  <noscript>這個工具需要啟用 JavaScript 才能使用。</noscript>
+  <script type="module" src="js/app.js"></script>
+  <script>
+    // 若 30 秒內仍未載入（例如網路擋住 CDN 或直接雙擊開啟檔案），給出說明
+    setTimeout(function () {
+      var boot = document.querySelector('.boot');
+      if (boot) {
+        boot.innerHTML = '載入失敗。<br><br>請透過 GitHub Pages 網址開啟，或確認網路可以連線到 cdn.jsdelivr.net。<br>直接雙擊 index.html 開啟，瀏覽器會擋住程式模組。';
+      }
+    }, 30000);
+  </script>
+</body>
+</html>
