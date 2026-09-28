@@ -1,5 +1,5 @@
 // LocalStorage 讀寫、資料正規化、匯入合併
-import { STORAGE_KEY, DATA_VERSION, DEFAULT_AREAS, DEFAULT_SETTINGS } from './constants.js';
+import { STORAGE_KEY, DATA_VERSION, DEFAULT_AREAS, DEFAULT_SETTINGS, LEGACY_COLORS } from './constants.js';
 import { nowISO } from './date.js';
 import { uid } from './util.js';
 
@@ -26,7 +26,7 @@ const str = (v) => (v == null ? '' : String(v));
 
 // 每種資料補齊預設欄位，確保舊版或手動修改過的 JSON 也能正常使用
 const DEFAULTS = {
-  areas: (x, i) => ({ id: x.id || uid('area'), name: str(x.name) || '未命名', icon: str(x.icon) || '•', color: x.color || '#7C8DA6', order: x.order ?? i }),
+  areas: (x, i) => ({ id: x.id || uid('area'), name: str(x.name) || '未命名', icon: str(x.icon) || '•', color: LEGACY_COLORS[x.color] || x.color || '#5E7F99', order: x.order ?? i }),
   goals: (x) => ({
     id: x.id || uid('goal'), title: str(x.title) || '未命名目標', areaId: str(x.areaId), horizon: x.horizon || 'year',
     why: str(x.why), startDate: str(x.startDate), targetDate: str(x.targetDate), status: x.status || 'active',
