@@ -1,5 +1,7 @@
 // 入口：組合資料狀態、提示元件、編輯器與路由
 import { render } from 'preact';
+import { useState } from 'preact/hooks';
+import { LockScreen, isUnlocked } from './components/lock.js';
 import { html } from './lib/html.js';
 import { StoreProvider } from './store.js';
 import { UIProvider, Empty } from './components/ui.js';
@@ -56,4 +58,10 @@ function App() {
   <//>`;
 }
 
-render(html`<${App} />`, document.getElementById('app'));
+// 先過密碼門檻，才載入資料與畫面
+function Root() {
+  const [unlocked, setUnlocked] = useState(isUnlocked());
+  return unlocked ? html`<${App} />` : html`<${LockScreen} onUnlock=${() => setUnlocked(true)} />`;
+}
+
+render(html`<${Root} />`, document.getElementById('app'));

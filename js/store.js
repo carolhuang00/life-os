@@ -44,7 +44,7 @@ export function StoreProvider({ children }) {
       const dark = t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
       document.documentElement.dataset.theme = dark ? 'dark' : 'light';
       const meta = document.querySelector('meta[name="theme-color"]');
-      if (meta) meta.content = dark ? '#191918' : '#FAF9F7';
+      if (meta) meta.content = dark ? '#0D1B26' : '#F3F8FB';
     };
     apply();
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
