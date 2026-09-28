@@ -8,6 +8,7 @@ import { downloadFile } from '../lib/util.js';
 import { todayKey } from '../lib/date.js';
 import { isValidBackup, COLLECTIONS } from '../lib/storage.js';
 import { STORAGE_KEY } from '../lib/constants.js';
+import { lock } from '../components/lock.js';
 
 export function SettingsPage() {
   const store = useStore();
@@ -123,6 +124,14 @@ export function SettingsPage() {
       <div class="setting-row">
         <div><strong class="danger-text">清除全部資料</strong><p class="muted small">重新開始。無法復原。</p></div>
         <button class="btn ghost danger-text" onClick=${clearAll}>全部清除</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-head"><h2>密碼</h2></div>
+      <div class="setting-row">
+        <div><strong>鎖定</strong><p class="muted small">登出這台裝置，下次打開要重新輸入密碼。</p></div>
+        <button class="btn ghost" onClick=${lock}>鎖定</button>
       </div>
     </section>
 
