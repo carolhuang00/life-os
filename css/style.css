@@ -1,28 +1,30 @@
 /* =========================================================
    Life OS 樣式
-   柔和、留白、個人感。顏色都定義成變數，深色模式只換變數。
+   海洋風：淺海藍、柔和留白。顏色都定義成變數，深色模式只換變數。
    ========================================================= */
 
 :root {
-  --bg: #FAF9F7;
+  /* 海洋：淺海霧白、海水藍、珊瑚與沙灘色點綴 */
+  --bg: #F3F8FB;
   --surface: #FFFFFF;
-  --surface-2: #F4F2EE;
-  --surface-3: #ECE9E3;
-  --border: #ECE9E4;
-  --border-strong: #DCD8D0;
-  --text: #2B2A28;
-  --text-2: #55524D;
-  --muted: #8C877F;
-  --accent: #4F7C6B;
-  --accent-soft: #E6EFEA;
-  --accent-text: #3D6657;
-  --warn: #B7791F;
-  --warn-soft: #FBF1E0;
-  --danger: #B5534B;
-  --danger-soft: #F8E6E4;
-  --today: #C27B2C;
-  --shadow: 0 1px 2px rgba(40, 36, 30, 0.04), 0 4px 16px rgba(40, 36, 30, 0.05);
-  --shadow-lg: 0 12px 40px rgba(40, 36, 30, 0.16);
+  --surface-2: #EAF2F7;
+  --surface-3: #DDEAF2;
+  --border: #E0EAF1;
+  --border-strong: #C8D8E4;
+  --text: #1D2E3B;
+  --text-2: #45596A;
+  --muted: #7B8E9D;
+  --accent: #2479A8;
+  --accent-soft: #E0EFF8;
+  --accent-text: #1B6590;
+  --on-accent: #FFFFFF;
+  --warn: #C98A3A;
+  --warn-soft: #FBF0DF;
+  --danger: #D0584F;
+  --danger-soft: #FBE7E4;
+  --today: #E07A5F;
+  --shadow: 0 1px 2px rgba(20, 60, 90, 0.05), 0 4px 16px rgba(20, 60, 90, 0.06);
+  --shadow-lg: 0 12px 40px rgba(20, 60, 90, 0.18);
   --radius: 14px;
   --radius-sm: 10px;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
@@ -31,25 +33,27 @@
 }
 
 :root[data-theme="dark"] {
-  --bg: #191918;
-  --surface: #222220;
-  --surface-2: #2A2927;
-  --surface-3: #33322F;
-  --border: #302F2C;
-  --border-strong: #403E3A;
-  --text: #EAE8E3;
-  --text-2: #C4C0B8;
-  --muted: #8F8B83;
-  --accent: #7FB09B;
-  --accent-soft: #2A3A33;
-  --accent-text: #9CC7B3;
-  --warn: #E0A95A;
-  --warn-soft: #3A3022;
-  --danger: #E08A82;
-  --danger-soft: #3D2826;
-  --today: #E3A866;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+  /* 深海 */
+  --bg: #0D1B26;
+  --surface: #12242F;
+  --surface-2: #172C3A;
+  --surface-3: #1D3545;
+  --border: #1E3342;
+  --border-strong: #2A4659;
+  --text: #E3EEF5;
+  --text-2: #B3C7D5;
+  --muted: #7F97A8;
+  --accent: #5FB4E2;
+  --accent-soft: #173649;
+  --accent-text: #86C9EE;
+  --on-accent: #0D1B26;
+  --warn: #E6B066;
+  --warn-soft: #33301F;
+  --danger: #F08A80;
+  --danger-soft: #3A2528;
+  --today: #F0967C;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.55);
   color-scheme: dark;
 }
 
@@ -156,8 +160,7 @@ kbd {
   padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid transparent;
   font-size: 14px; font-weight: 500; line-height: 1.4; white-space: nowrap; text-decoration: none !important;
 }
-.btn.primary { background: var(--accent); color: #fff; }
-:root[data-theme="dark"] .btn.primary { color: #13201B; }
+.btn.primary { background: var(--accent); color: var(--on-accent); }
 .btn.primary:hover { filter: brightness(1.05); }
 .btn.ghost { background: transparent; border-color: var(--border-strong); color: var(--text-2); }
 .btn.ghost:hover { background: var(--surface-2); }
@@ -282,11 +285,10 @@ kbd {
 
 .check {
   width: 20px; height: 20px; margin-top: 2px; flex-shrink: 0; border-radius: 50%;
-  border: 1.6px solid var(--border-strong); background: transparent; display: inline-flex; align-items: center; justify-content: center; padding: 0; color: #fff;
+  border: 1.6px solid var(--border-strong); background: transparent; display: inline-flex; align-items: center; justify-content: center; padding: 0; color: var(--on-accent);
 }
 .check:hover { border-color: var(--accent); background: var(--accent-soft); }
 .check.on { background: var(--accent); border-color: var(--accent); }
-:root[data-theme="dark"] .check.on { color: #13201B; }
 .check.big { width: 24px; height: 24px; margin-top: 0; }
 
 .due { font-weight: 500; }
@@ -419,20 +421,20 @@ i.due, .kind-pill.due, .kind-pill.task, .kind-pill.project { background: var(--d
 i.goal, .kind-pill.goal { background: var(--accent-soft); color: var(--accent-text); }
 i.today, .kind-pill.today { background: var(--warn-soft); color: var(--today); }
 i.plan, .kind-pill.plan { background: var(--surface-3); color: var(--text-2); }
-i.waiting, .kind-pill.waiting { background: #E8ECF6; color: #5A6A99; }
-:root[data-theme="dark"] i.waiting, :root[data-theme="dark"] .kind-pill.waiting { background: #2A3040; color: #A3B3DE; }
+i.waiting, .kind-pill.waiting { background: #E3F1F1; color: #2F7D7A; }
+:root[data-theme="dark"] i.waiting, :root[data-theme="dark"] .kind-pill.waiting { background: #173A3C; color: #8FD3CF; }
 .legend i.due, .month-dots i.due { background: var(--danger); }
 .legend i.goal, .month-dots i.goal { background: var(--accent); }
 .legend i.today, .month-dots i.today { background: var(--today); }
 .legend i.plan, .month-dots i.plan { background: var(--muted); }
-.legend i.waiting, .month-dots i.waiting { background: #7C8DC0; }
+.legend i.waiting, .month-dots i.waiting { background: #3FA7A0; }
 .kind-pill { font-size: 11.5px; padding: 1px 8px; border-radius: 20px; white-space: nowrap; }
 .day-list { display: flex; flex-direction: column; gap: 10px; }
 .day-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; }
 .day-block.is-today { border-color: var(--accent); }
 .day-block.picked { margin-top: 14px; }
 .day-title { font-size: 14.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
-.today-pill { font-size: 11px; padding: 0 8px; border-radius: 10px; background: var(--accent); color: #fff; font-weight: 500; }
+.today-pill { font-size: 11px; padding: 0 8px; border-radius: 10px; background: var(--accent); color: var(--on-accent); font-weight: 500; }
 .cal-item { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: none; border: none; padding: 6px 4px; border-radius: 8px; font-size: 14px; }
 .cal-item:hover { background: var(--surface-2); }
 .cal-item.is-done .cal-item-title { text-decoration: line-through; color: var(--muted); }
@@ -445,7 +447,7 @@ i.waiting, .kind-pill.waiting { background: #E8ECF6; color: #5A6A99; }
 }
 .month-cell:hover { border-color: var(--border-strong); }
 .month-cell.other { opacity: 0.45; }
-.month-cell.is-today .month-date { background: var(--accent); color: #fff; }
+.month-cell.is-today .month-date { background: var(--accent); color: var(--on-accent); }
 .month-cell.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
 .month-date { font-size: 12.5px; font-weight: 600; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; }
 .month-items { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
@@ -453,8 +455,8 @@ i.waiting, .kind-pill.waiting { background: #E8ECF6; color: #5A6A99; }
 .month-item.due { background: var(--danger-soft); color: var(--danger); }
 .month-item.goal { background: var(--accent-soft); color: var(--accent-text); }
 .month-item.today { background: var(--warn-soft); color: var(--today); }
-.month-item.waiting { background: #E8ECF6; color: #5A6A99; }
-:root[data-theme="dark"] .month-item.waiting { background: #2A3040; color: #A3B3DE; }
+.month-item.waiting { background: #E3F1F1; color: #2F7D7A; }
+:root[data-theme="dark"] .month-item.waiting { background: #173A3C; color: #8FD3CF; }
 .month-item.is-done { text-decoration: line-through; opacity: 0.6; }
 .month-dots { display: none; gap: 3px; }
 
@@ -581,11 +583,11 @@ i.waiting, .kind-pill.waiting { background: #E8ECF6; color: #5A6A99; }
 .toasts { position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%); z-index: 80; display: flex; flex-direction: column; gap: 8px; align-items: center; pointer-events: none; width: max-content; max-width: calc(100vw - 32px); }
 .toast {
   display: flex; align-items: center; gap: 14px; padding: 10px 16px; border-radius: 12px; font-size: 14px;
-  background: #2E2D2A; color: #F3F1EC; box-shadow: var(--shadow-lg); pointer-events: auto; animation: pop 0.18s ease;
+  background: #173247; color: #EEF6FB; box-shadow: var(--shadow-lg); pointer-events: auto; animation: pop 0.18s ease;
 }
-:root[data-theme="dark"] .toast { background: #EAE8E3; color: #22211F; }
-.toast-action { background: none; border: none; color: #A8D3C0; font-weight: 600; padding: 0; }
-:root[data-theme="dark"] .toast-action { color: #3D6657; }
+:root[data-theme="dark"] .toast { background: #E3EEF5; color: #0D1B26; }
+.toast-action { background: none; border: none; color: #8FD0F2; font-weight: 600; padding: 0; }
+:root[data-theme="dark"] .toast-action { color: #1B6590; }
 
 @keyframes fade { from { opacity: 0; } }
 @keyframes pop { from { opacity: 0; transform: translateY(6px) scale(0.98); } }
@@ -618,12 +620,11 @@ i.waiting, .kind-pill.waiting { background: #E8ECF6; color: #5A6A99; }
   .tab:hover { text-decoration: none; }
   .tab.on { color: var(--accent-text); }
   .tab-icon { position: relative; display: flex; }
-  .tab-dot { position: absolute; top: -4px; right: -10px; font-size: 10px; min-width: 16px; height: 16px; line-height: 16px; text-align: center; border-radius: 8px; background: var(--accent); color: #fff; padding: 0 4px; }
+  .tab-dot { position: absolute; top: -4px; right: -10px; font-size: 10px; min-width: 16px; height: 16px; line-height: 16px; text-align: center; border-radius: 8px; background: var(--accent); color: var(--on-accent); padding: 0 4px; }
   .fab {
     display: flex; align-items: center; justify-content: center; position: fixed; right: 18px; bottom: calc(78px + env(safe-area-inset-bottom)); z-index: 21;
-    width: 54px; height: 54px; border-radius: 18px; border: none; background: var(--accent); color: #fff; box-shadow: var(--shadow-lg);
+    width: 54px; height: 54px; border-radius: 18px; border: none; background: var(--accent); color: var(--on-accent); box-shadow: var(--shadow-lg);
   }
-  :root[data-theme="dark"] .fab { color: #13201B; }
   .toasts { bottom: calc(146px + env(safe-area-inset-bottom)); }
 
   .page-head { flex-direction: column; align-items: stretch; margin-bottom: 18px; }
@@ -684,3 +685,31 @@ i.waiting, .kind-pill.waiting { background: #E8ECF6; color: #5A6A99; }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+/* ---------- 密碼畫面 ---------- */
+.lock-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px 16px; background: var(--bg); }
+.lock-card { width: 100%; max-width: 340px; display: flex; flex-direction: column; gap: 14px; padding: 28px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 18px; box-shadow: var(--shadow); }
+.lock-brand { padding: 0; }
+.lock-input { width: 100%; border: 1px solid var(--border); background: var(--bg); border-radius: 10px; padding: 12px 14px; font-size: 18px; letter-spacing: 0.2em; text-align: center; outline: none; }
+.lock-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.lock-error { color: var(--danger); font-size: 13.5px; margin-top: -6px; }
+.lock-card .toggle { font-size: 13.5px; color: var(--text-2); }
+
+.upcoming-row { grid-template-columns: 116px auto 1fr; }
+.upcoming-date { white-space: nowrap; }
+@media (max-width: 899px) { .upcoming-row { grid-template-columns: 96px auto 1fr; } }
+
+/* ---------- 海洋感點綴 ---------- */
+.brand-mark { background: linear-gradient(160deg, #4FB3D9, #1F6F9F); border-radius: 7px; }
+.brand-mark::after { border-color: #FFFFFF; }
+:root[data-theme="dark"] .brand-mark::after { border-color: var(--bg); }
+/* 首頁上方一道淡淡的海浪 */
+.today-head { position: relative; padding-bottom: 18px; }
+.today-head::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14px; opacity: 0.55;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 14'%3E%3Cpath d='M0 7 Q15 0 30 7 T60 7 T90 7 T120 7' fill='none' stroke='%237CC3E6' stroke-width='2'/%3E%3C/svg%3E") repeat-x;
+  background-size: 120px 14px;
+}
+.lock-screen { background: linear-gradient(180deg, #EAF4FA 0%, #F3F8FB 55%, #E3F0F7 100%); }
+:root[data-theme="dark"] .lock-screen { background: linear-gradient(180deg, #0D1B26 0%, #102332 100%); }
+.progress-fill { background: linear-gradient(90deg, #4FB3D9, var(--accent)); }
